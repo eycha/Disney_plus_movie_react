@@ -10,8 +10,9 @@ const Banner = () => {
   }, []);
 
   const fetchData = async () => {
-    const response = await axios.get(requests.fetchNowPlaying);
-    console.log(response);
+    const response = await axios.get(requests.fetchNowPlayingRequest);
+    console.log("!!!res", response);
+
     //여러 영화중 하나의 ID 가져오기
     const movieId =
       response.data.result[
