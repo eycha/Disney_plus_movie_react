@@ -39,12 +39,12 @@ const Banner = () => {
     <header
       className="banner"
       style={{
-        backgroundImage: `url("/images/home-background.png")`,
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
         backgroundPosition: "top center",
         backgroundSize: "cover",
       }}
     >
-      <div className="banner__contents">
+      <div style={{fontSize: 10}} className="banner__contents">
         <h1 className="banner__title">
           {movie.title || movie.name || movie.original_name}
         </h1>
@@ -54,7 +54,7 @@ const Banner = () => {
             <button className="banner__button play">Play</button>
           )}
         </div>
-        <p className="banner__description">{movie.overview}</p>
+        <p className="banner__description">{truncate(movie.overview, 120)}</p>
       </div>
       <div className="banner--fadeBottom" />
     </header>
