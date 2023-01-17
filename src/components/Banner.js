@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import axios from "../api/axios";
+import axiosInstance from "../api/axios";
 import requests from "../api/request";
+import "./Banner.css";
 
 const Banner = () => {
   const [movie, setMovie] = useState([]);
@@ -10,17 +11,21 @@ const Banner = () => {
   }, []);
 
   const fetchData = async () => {
-    const response = await axios.get(requests.fetchNowPlayingRequest);
+    const response = await axiosInstance.get(requests.fetchNowPlaying);
+
+    // const response = await axios.get(
+    //   "https://api.themoviedb.org/3/movie/now_playing?api_key=f643ad5042c57933d8eec6a7a984a73c&language=ko-KR&page=1"
+    // );
     console.log("!!!res", response);
 
-    //여러 영화중 하나의 ID 가져오기
+    // 여러 영화중 하나의 ID 가져오기
     const movieId =
-      response.data.result[
+      response.data.results[
         Math.floor(Math.random() * response.data.results.length)
       ].id;
 
     //특정 영화의 더 상세한 정보를 가져오괴 (비디오 정보도 포함)
-    const {data: movieDetail} = await axios.get(`movie/${movieId}`, {
+    const {data: movieDetail} = await axiosInstance.get(`movie/${movieId}`, {
       params: {append_to_response: "videos"},
     });
     setMovie(movieDetail);
@@ -34,7 +39,7 @@ const Banner = () => {
     <header
       className="banner"
       style={{
-        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+        backgroundImage: `url("/images/home-background.png")`,
         backgroundPosition: "top center",
         backgroundSize: "cover",
       }}
