@@ -39,17 +39,20 @@ const Banner = () => {
 
   if (isClicked) {
     return (
-      <Container>
-        <HomeContainer>
-          <Iframe
-            src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`}
-            width="640"
-            height="360"
-            frameborder="0"
-            allow="autoplay; fullscreen"
-          ></Iframe>
-        </HomeContainer>
-      </Container>
+      <>
+        <Container>
+          <HomeContainer>
+            <Iframe
+              src={`https://www.youtube.com/embed/${movie.videos.results[0].key}?controls=0&autoplay=1&loop=1&mute=1&playlist=${movie.videos.results[0].key}`}
+              width="640"
+              height="360"
+              frameborder="0"
+              allow="autoplay; fullscreen"
+            ></Iframe>
+          </HomeContainer>
+        </Container>
+        <button onClick={() => setIsClicked(false)}>X</button>
+      </>
     );
   } else {
     return (
