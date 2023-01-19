@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import axiosInstance from "../api/axios";
 import requests from "../api/request";
 import "./Banner.css";
@@ -27,8 +27,8 @@ const Banner = () => {
       ].id;
 
     //특정 영화의 더 상세한 정보를 가져오괴 (비디오 정보도 포함)
-    const { data: movieDetail } = await axiosInstance.get(`movie/${movieId}`, {
-      params: { append_to_response: "videos" },
+    const {data: movieDetail} = await axiosInstance.get(`movie/${movieId}`, {
+      params: {append_to_response: "videos"},
     });
     setMovie(movieDetail);
   };
@@ -64,7 +64,7 @@ const Banner = () => {
           backgroundSize: "cover",
         }}
       >
-        <div style={{ fontSize: 10 }} className="banner__contents">
+        <div style={{fontSize: 10}} className="banner__contents">
           <h1 className="banner__title">
             {movie.title || movie.name || movie.original_name}
           </h1>
