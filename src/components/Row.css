@@ -52,6 +52,11 @@
   visibility: visible;
 }
 
+.slider:hover .slider__arrow-right {
+  transition: 400ms all ease-in-out;
+  visibility: visible;
+}
+
 .slider__arrow-left:hover {
   background: rgba(20, 20, 20, 0.5);
   transition: 400ms all ease-in-out;
