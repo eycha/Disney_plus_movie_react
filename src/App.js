@@ -14,16 +14,12 @@ function App() {
       <Category></Category>
       <Row title="Trending Now" id="TN" fetchUrl={requests.fetchTrending}></Row>
       <Row title="Top Rated" id="TR" fetchUrl={requests.fetchTopRated}></Row>
-      <Row
-        title="Action Movies"
-        id="AM"
-        fetchUrl={requests.fetchActionMoives}
-      ></Row>
-      <Row
+      <Row title="Up Coming" id="UC" fetchUrl={requests.fetchUpComing}></Row>
+      {/* <Row
         title="Comedy Movies"
         id="CM"
         fetchUrl={requests.fetchComedyMoives}
-      ></Row>
+      ></Row> */}
     </Container>
   );
 }
