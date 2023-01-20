@@ -1,22 +1,25 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = () => {
   const [show, setShow] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        setShow(true);
-      } else {
-        setShow(false);
-      }
-    });
-
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", () => {});
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  };
 
   return (
     <NavWrapper show={show}>
@@ -27,6 +30,7 @@ const Nav = () => {
           onClick={() => (window.location.href = "/")}
         />
       </Logo>
+      {pathname}
     </NavWrapper>
   );
 };
