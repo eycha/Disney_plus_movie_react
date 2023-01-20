@@ -4,9 +4,8 @@ import "./App.css";
 import styled from "styled-components";
 import Category from "./components/Category";
 import Row from "./components/Row";
-import requests from "./api/request";
 import LoginPage from "./pages/DetailPage";
-import { Route, Routes, Outlet } from "react-router-dom";
+import {Route, Routes, Outlet} from "react-router-dom";
 
 const Layout = () => {
   return (
