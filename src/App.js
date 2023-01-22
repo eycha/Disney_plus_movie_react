@@ -12,7 +12,6 @@ const Layout = () => {
   return (
     <div>
       <Nav />
-      {/* <Banner /> */}
       <Outlet />
     </div>
   );
@@ -22,11 +21,12 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<Layout />}></Route>
-        <Route index element={<LoginPage />}></Route>
-        <Route path="main" element={<MainPage />}></Route>
-        <Route path="search" element={<SearchPage />}></Route>
-        <Route path=":movieId" element={<DetailPage />}></Route>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<LoginPage />} />
+          <Route path="main" element={<MainPage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route path=":movieId" element={<DetailPage />} />
+        </Route>
       </Routes>
     </div>
   );
