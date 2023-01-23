@@ -6,7 +6,7 @@ import LoginPage from "../pages/LoginPage/index";
 const Nav = () => {
   const [show, setShow] = useState(false);
   const { pathname } = useLocation();
-  const { searchValue, setSearchValue } = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,6 +15,8 @@ const Nav = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  console.log("useLocaion.search", useLocation().search);
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -26,7 +28,7 @@ const Nav = () => {
 
   const handleChange = (e) => {
     setSearchValue(e.target.value);
-    navigate(`/search`);
+    navigate(`/search?q=${e.target.value}`);
   };
 
   return (
