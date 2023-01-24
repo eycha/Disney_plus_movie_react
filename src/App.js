@@ -2,7 +2,7 @@ import Nav from "./components/Nav";
 import Banner from "./components/Banner";
 import "./App.css";
 
-import LoginPage from "./pages/DetailPage";
+import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
 import SearchPage from "./pages/SearchPage";
 import DetailPage from "./pages/DetailPage";
